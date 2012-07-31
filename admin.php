@@ -72,7 +72,7 @@ function mf_dashboard_widget_content() {
 				money_flow_widget.find('thead a').click(function(){
 					var type = $(this).parent().attr('data-type');
 					var count = money_flow_widget.find('.take-col tr').length + 1;
-					money_flow_widget.find('.'+type+'-col table').append('<tr data-count="'+count+'"><td><p>Ashfame</p><input type="hidden" name="moneyflow['+type+']['+parseInt(count)+'][name]" value="Ashfame" /></td><td><input class="small-text" type="text" name="moneyflow['+type+']['+parseInt(count)+'][amount]" value="1230" /></td></tr>');
+					money_flow_widget.find('.'+type+'-col table').append('<tr data-count="'+count+'"><td><p>Name (Click to edit)</p><input type="hidden" name="moneyflow['+type+']['+parseInt(count)+'][name]" value="Name (Click to edit)" /></td><td><input class="small-text" type="text" name="moneyflow['+type+']['+parseInt(count)+'][amount]" value="0" /></td></tr>');
 					money_flow_widget.find('.submit-row').slideDown('slow');
 					return false;
 				});
