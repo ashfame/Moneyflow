@@ -78,7 +78,7 @@ function mf_dashboard_widget_content() {
 				});
 
 				// Make name editable
-				money_flow_widget.find('p').click(function(){
+				money_flow_widget.find('p').live('click',function(){
 					var p = $(this);
 					var nameField = p.next();
 					var name = $(nameField).val();
