@@ -61,47 +61,47 @@ function mf_dashboard_widget_content() {
 			$(document).ready(function(){
 				var money_flow_widget = $('#money_flow_widget');
 				// Hide submit button initially
-				$(money_flow_widget).find('.submit-row').hide();
+				money_flow_widget.find('.submit-row').hide();
 
 				// As soon as any field changes, show the submit button
-				$(money_flow_widget).find('.small-text').change(function(){
-					$(money_flow_widget).find('.submit-row').slideDown('slow');
+				money_flow_widget.find('.small-text').change(function(){
+					money_flow_widget.find('.submit-row').slideDown('slow');
 				});
 
 				// Add button calls
-				$(money_flow_widget).find('thead a').click(function(){
+				money_flow_widget.find('thead a').click(function(){
 					var type = $(this).parent().attr('data-type');
-					var count = $(money_flow_widget).find('.take-col tr').length + 1;
-					$(money_flow_widget).find('.'+type+'-col table').append('<tr data-count="'+count+'"><td><p>Ashfame</p><input type="hidden" name="moneyflow['+type+']['+parseInt(count)+'][name]" value="Ashfame" /></td><td><input class="small-text" type="text" name="moneyflow['+type+']['+parseInt(count)+'][amount]" value="1230" /></td></tr>');
-					$(money_flow_widget).find('.submit-row').slideDown('slow');
+					var count = money_flow_widget.find('.take-col tr').length + 1;
+					money_flow_widget.find('.'+type+'-col table').append('<tr data-count="'+count+'"><td><p>Ashfame</p><input type="hidden" name="moneyflow['+type+']['+parseInt(count)+'][name]" value="Ashfame" /></td><td><input class="small-text" type="text" name="moneyflow['+type+']['+parseInt(count)+'][amount]" value="1230" /></td></tr>');
+					money_flow_widget.find('.submit-row').slideDown('slow');
 					return false;
 				});
 
 				// Make name editable
-				$(money_flow_widget).find('p').click(function(){
-					var nameField = $(this).next();
-					var name = $(nameField).val();
+				money_flow_widget.find('p').click(function(){
 					var p = $(this);
+					var nameField = p.next();
+					var name = $(nameField).val();
 					// hide <p>
-					$(p).hide();
+					p.hide();
 					// insert a input field to modify name
-					$(p).after('<input type="text" class="name-edit" value="'+name+'" />');
+					p.after('<input type="text" class="name-edit" value="'+name+'" />');
 					// cache temp field
-					var tempField = $(p).next('.name-edit');
+					var tempField = p.next('.name-edit');
 					// set focus
-					$(tempField).focus();
+					tempField.focus();
 					// save on blur
-					$(tempField).blur(function(){
+					tempField.blur(function(){
 						// save name to hidden field
-						$(nameField).val( $(tempField).val() );
+						nameField.val( tempField.val() );
 						// remove temp fiels
-						$(tempField).remove();
+						tempField.remove();
 						// show new value in <p>
-						$(p).html( $(tempField).val() );
+						p.html( tempField.val() );
 						// make <p> visible
-						$(p).show();
+						p.show();
 						// show submit button
-						$(money_flow_widget).find('.submit-row').slideDown('slow');
+						money_flow_widget.find('.submit-row').slideDown('slow');
 					});
 
 				});
